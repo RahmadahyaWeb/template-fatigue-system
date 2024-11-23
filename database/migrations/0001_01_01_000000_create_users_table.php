@@ -22,7 +22,7 @@ return new class extends Migration
             $table->foreignId('role_id')->constrained('roles');
             $table->string('name');
             $table->string('email')->unique();
-            $table->string('password');
+            $table->string('password')->nullable();
             $table->rememberToken();
             $table->timestamps();
         });
