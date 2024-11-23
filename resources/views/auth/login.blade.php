@@ -12,10 +12,14 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.2.0/remixicon.css" />
 
     <title>Login</title>
+
+    @livewireStyles
 </head>
 
 <body>
     @livewire('login')
+
+    @livewireScripts
 </body>
 
 </html>

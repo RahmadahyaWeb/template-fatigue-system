@@ -23,8 +23,41 @@
         <div class="loader"></div>
     </div>
 
-    <!--=============== TOASTER ===============-->
-    <div class="toast-container" id="toast-container"></div>
+    <!--=============== TOASTER DEFAULT ===============-->
+    @if (session('default'))
+        <div class="toast-container" id="toast-container">
+            <div class="toast" id="auto-hide">
+                {{ session('default') }}
+            </div>
+        </div>
+    @endif
+
+    <!--=============== TOASTER SUCCESS ===============-->
+    @if (session('success'))
+        <div class="toast-container" id="toast-container">
+            <div class="toast success" id="auto-hide">
+                {{ session('success') }}
+            </div>
+        </div>
+    @endif
+
+    <!--=============== TOASTER DANGER ===============-->
+    @if (session('danger'))
+        <div class="toast-container" id="toast-container">
+            <div class="toast danger" id="auto-hide">
+                {{ session('success') }}
+            </div>
+        </div>
+    @endif
+
+    <!--=============== TOASTER WARNING ===============-->
+    @if (session('warning'))
+        <div class="toast-container" id="toast-container">
+            <div class="toast warning" id="auto-hide">
+                {{ session('success') }}
+            </div>
+        </div>
+    @endif
 
     <!--=============== HEADER ===============-->
     <x-header />
@@ -34,18 +67,23 @@
 
     <!--=============== MAIN ===============-->
     <main class="main container" id="main">
-        <h1>@yield('title')</h1>
+        <h1 class="mb-3">@yield('title')</h1>
 
         @yield('content')
     </main>
 
-    @livewireScripts
 
     <!--=============== MAIN JS ===============-->
+    @livewireScripts
+
     <script>
-        $wire.on('show-toast', () => {
-            showToast();
-        });
+        setTimeout(function() {
+            var toast = document.getElementById('auto-hide');
+            if (toast) {
+                toast.classList.remove('show');
+                toast.remove();
+            }
+        }, 3000);
     </script>
 
     <script src="{{ asset('assets/js/main.js') }}"></script>
