@@ -4,21 +4,26 @@ namespace App\Livewire;
 
 use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
+use Livewire\Attributes\Validate;
 
 class Login extends Component
 {
+    #[Validate]
     public $email;
     public $password;
 
-    public function login()
+    public function rules()
     {
-        $this->validate([
+        return [
             'email'     => 'required|email',
             'password'  => 'required'
-        ]);
+        ];
+    }
 
+    public function login()
+    {
         if (Auth::attempt(['email' => $this->email, 'password' => $this->password])) {
-            session()->flash('default', 'Successfully Logged In');
+            session()->flash('success', 'Successfully Logged In');
             return redirect('/');
         } else {
             $this->addError('email', 'Invalid credentials. Please try again.');

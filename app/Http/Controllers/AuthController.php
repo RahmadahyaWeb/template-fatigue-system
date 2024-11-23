@@ -12,20 +12,6 @@ class AuthController extends Controller
         return view('auth.login');
     }
 
-    public function login(Request $request)
-    {
-        $request->validate([
-            'email'     => 'required|email',
-            'password'  => 'required'
-        ]);
-
-        if (Auth::attempt($request->only('email', 'password'))) {
-            return redirect('/');
-        } else {
-            return redirect()->back()->withInput()->withErrors(['email' => 'Invalid credentials. Please try again.']);
-        }
-    }
-
     public function logout()
     {
         Auth::logout();

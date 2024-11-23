@@ -16,7 +16,7 @@
                                         <label for="email">Email</label>
                                         <input type="email" id="email"
                                             class="@error('email') is-invalid @enderror" placeholder="Email"
-                                            wire:model="email" />
+                                            wire:model.live="email" />
 
                                         @error('email')
                                             <div>
@@ -28,7 +28,7 @@
                                         <label for="password">Password</label>
                                         <input type="password" id="password"
                                             class="@error('password') is-invalid @enderror" placeholder="Password"
-                                            wire:model="password" />
+                                            wire:model.live="password" />
 
                                         @error('password')
                                             <div>
@@ -37,9 +37,9 @@
                                         @enderror
                                     </div>
                                     <div class="col-12 mt-3" style="display: grid">
-                                        <button class="btn btn-primary" wire:loading.attr="disabled">
-                                            <span wire:loading.remove>Login</span>
-                                            <span wire:loading>Logging in...</span>
+                                        <button class="btn btn-primary" wire:loading.attr="disabled" wire:target="login">
+                                            <span wire:loading.remove wire:target="login">Login</span>
+                                            <span wire:loading wire:target="login">Logging in...</span>
                                         </button>
                                     </div>
 
