@@ -12,9 +12,12 @@
     <link rel="stylesheet" href="{{ asset('assets/css/styles.css') }}" />
 
     <title>FATIGUE SYSTEM</title>
+
+    @livewireStyles
 </head>
 
 <body>
+
     <!--=============== PRELOADER ===============-->
     <div class="preloader">
         <div class="loader"></div>
@@ -36,7 +39,15 @@
         @yield('content')
     </main>
 
+    @livewireScripts
+
     <!--=============== MAIN JS ===============-->
+    <script>
+        $wire.on('show-toast', () => {
+            showToast();
+        });
+    </script>
+
     <script src="{{ asset('assets/js/main.js') }}"></script>
 </body>
 
