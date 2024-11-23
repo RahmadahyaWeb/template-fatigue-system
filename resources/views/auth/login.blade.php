@@ -59,10 +59,10 @@
 
                             <div class="row">
                                 <div class="col-12" style="display: grid;">
-                                    <button type="button" class="btn btn-outline">
+                                    <a href="{{ route('google.redirect') }}" class="btn btn-outline">
                                         <i class="ri-google-fill"></i>
                                         Login with Google
-                                    </button>
+                                    </a>
                                 </div>
                             </div>
                         </div>
