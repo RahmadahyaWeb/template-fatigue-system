@@ -18,6 +18,7 @@ class Login extends Component
         ]);
 
         if (Auth::attempt(['email' => $this->email, 'password' => $this->password])) {
+            session()->flash('default', 'Successfully Logged In');
             return redirect('/');
         } else {
             $this->addError('email', 'Invalid credentials. Please try again.');
