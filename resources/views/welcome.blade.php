@@ -25,4 +25,20 @@
             </div>
         </div>
     </div>
+
+    <button id="open-modal-btn" class="btn btn-confirm">Open Modal</button>
+    
+    <!-- Modal -->
+    <div id="custom-modal" class="modal hidden">
+        <div class="modal__content card">
+            <div class="modal__header">
+                <h2 class="card__title">Modal Title</h2>
+                <button class="modal__close" aria-label="Close modal">&times;</button>
+            </div>
+            <div class="modal__body">
+                <p class="card__content">This is the content of the modal. You can add any information or form here.</p>
+            </div>
+        </div>
+    </div>
+
 @endsection

@@ -75,8 +75,8 @@ body.dark-theme {
     --shadow-color: hsla(228, 80%, 4%, 0.3);
 }
 
-/*========== 
-	Color changes in some parts of 
+/*==========
+	Color changes in some parts of
 	the website, in dark theme
 ==========*/
 .dark-theme .sidebar__content::-webkit-scrollbar {
@@ -1449,4 +1449,88 @@ body.dark-theme .loader {
         box-shadow: 0 -1px 0 rgba(0, 0, 0, 0.04), 0 1px 1px rgba(0, 0, 0, 0.25);
         cursor: not-allowed;
     }
+}
+
+/*=============== MODAL STYLES ===============*/
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: var(--z-fixed);
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+}
+
+.modal__content {
+    position: relative;
+    max-width: 500px;
+    width: 90%;
+    background-color: var(--body-color);
+    border-radius: 1rem;
+    box-shadow: 0 4px 16px var(--shadow-color);
+    padding: 1.5rem;
+}
+
+.modal__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.modal__close {
+    font-size: 1.5rem;
+    cursor: pointer;
+    background: none;
+    border: none;
+    color: var(--title-color);
+    transition: color 0.3s;
+}
+
+.modal__close:hover {
+    color: var(--first-color);
+}
+
+.hidden {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.visible {
+    opacity: 1;
+    visibility: visible;
+}
+
+.btn {
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    font-size: var(--normal-font-size);
+    font-weight: var(--font-semi-bold);
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.btn-close {
+    background-color: hsl(228, 8%, 85%);
+    color: var(--text-color);
+}
+
+.btn-close:hover {
+    background-color: hsl(228, 8%, 75%);
+    color: var(--title-color);
+}
+
+.btn-confirm {
+    background-color: var(--first-color);
+    color: white;
+}
+
+.btn-confirm:hover {
+    background-color: hsl(228, 70%, 53%);
 }

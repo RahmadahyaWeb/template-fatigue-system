@@ -95,3 +95,18 @@ function showToast(message) {
   }, 3000); // Toast akan hilang setelah 3 detik
 }
 
+document.getElementById("open-modal-btn").addEventListener("click", () => {
+    const modal = document.getElementById("custom-modal");
+    modal.classList.add("visible");
+    modal.classList.remove("hidden");
+});
+
+const closeModalButtons = document.querySelectorAll(".btn-close, .modal__close");
+closeModalButtons.forEach(button => {
+    button.addEventListener("click", () => {
+        const modal = document.getElementById("custom-modal");
+        modal.classList.add("hidden");
+        modal.classList.remove("visible");
+    });
+});
+
